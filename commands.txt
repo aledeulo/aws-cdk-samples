@@ -1,0 +1,68 @@
+Command
+
+cdk list (ls)
+Lists the stacks in the application
+
+cdk synthesize (synth)	
+Synthesizes and prints the AWS CloudFormation template for the specified stack or stacks 
+
+cdk bootstrap
+Deploys the AWS CDK Toolkit stack, required to deploy stacks containing assets
+
+cdk deploy
+Deploys the specified stacks
+
+cdk destroy
+Destroys the specified stacks
+
+cdk diff
+Compares the specified stack with the deployed stack or a local AWS CloudFormation template
+
+cdk metadata
+Displays metadata about the specified stack
+
+cdk init
+Creates a new AWS CDK project in the current directory from a specified template
+
+cdk context
+Manages cached context values
+
+cdk docs (doc)
+Opens the AWS CDK API reference in your browser
+
+cdk doctor
+Checks your AWS CDK project for potential problems
+
+
+
+Create a new AWS CDK project:
+
+cdk init -l typescript
+cdk init app --language typescript
+
+
+Synthesizing stacks:
+The cdk synth command synthesizes a stack defined in your application into an AWS CloudFormation template. 
+
+cdk synth                 # if app contains only one stack
+cdk synth stack1          # Synthesizes only selected stack
+cdk synth stack1 stack2   # Synthesizes multiple selected stacks
+cdk synth *               # all stacks in app
+
+
+Deploying stacks:
+The cdk deploy command provisions your stacks into your AWS account after successful synthetization of your application into a template. This process includes the creation of cloud resources, security groups, and IAM changes necessary to administer your deployment. 
+
+cdk deploy                   #deploys stack
+cdk deploy stack1            #deploys single stack
+cdk deploy stack1 stack2     #deploys both stack1 and stack2
+cdl deploy *                 #deploys all stacks in the project folder.
+
+
+Removing stacks:
+If you no longer have a use for a deployed stack, use the cdk destroy command to remove all resources in the stack from your AWS account.
+
+cdk destroy                   # destroys stack(s) associated with project
+cdk destroy stack stack2      # destroys stack1 and stack2
+cdk destroy stack*            # destroys all stacks in the project folder.  
+# Note ‘/’ can also be used in place of ‘*’
